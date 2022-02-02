@@ -67,6 +67,7 @@ export const App = () => {
       textFieldRef.current.value = ''
     }
 
+    setGuesses([])
     onInput()
   }, [word])
 

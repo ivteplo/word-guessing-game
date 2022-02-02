@@ -14,7 +14,7 @@ A word guessing game similar to Wordle
 1. Clone the repository
 
 ```bash
-git clone https://ivteplo/word-guessing-game
+git clone https://github.com/ivteplo/word-guessing-game
 ```
 
 2. Navigate to the folder

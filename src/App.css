@@ -10,13 +10,19 @@
 
 @layer components {
   .button {
-    @apply
-      font-medium font-sans
+    @apply font-medium font-sans
       text-left
       rounded-lg p-2 min-w-[200px]
       hover:bg-light-gray dark:hover:bg-dark-gray
       ease-in-out transition-colors duration-300
       flex flex-row items-center gap-2;
+  }
+
+  .game-grid-cell {
+    @apply p-4 mx-4 rounded-xl aspect-square box-content h-[1em]
+      text-2xl bg-default
+      flex justify-center items-center
+      drop-shadow-xl shadow-inner;
   }
 }
 

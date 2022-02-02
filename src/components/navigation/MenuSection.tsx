@@ -1,7 +1,8 @@
-import classNames from "classnames"
-import { HTMLProps, FC, Children } from "react"
+import classNames from 'classnames'
+import { HTMLProps, FC, Children } from 'react'
 
-interface MenuSectionProps extends HTMLProps<HTMLDivElement> {
+interface MenuSectionProps
+  extends HTMLProps<HTMLDivElement> {
   sectionName: string
 }
 
@@ -19,7 +20,7 @@ export const MenuSection: FC<MenuSectionProps> = ({
         {sectionName}
       </h3>
       <ul className="list-none">
-        {Children.map(children, child => (
+        {Children.map(children, (child) => (
           <li className="mb-2">{child}</li>
         ))}
       </ul>

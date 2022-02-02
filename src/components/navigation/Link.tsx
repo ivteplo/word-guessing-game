@@ -1,12 +1,18 @@
-import { AnchorHTMLAttributes, DetailedHTMLProps, FC } from 'react'
+import {
+  AnchorHTMLAttributes,
+  DetailedHTMLProps,
+  FC,
+} from 'react'
 import classNames from 'classnames'
 import { Icon } from '@primer/octicons-react'
 
 type LinkAttributes =
   AnchorHTMLAttributes<HTMLAnchorElement>
 
-type HTMLLinkProps =
-  DetailedHTMLProps<LinkAttributes, HTMLAnchorElement>
+type HTMLLinkProps = DetailedHTMLProps<
+  LinkAttributes,
+  HTMLAnchorElement
+>
 
 interface LinkProps extends HTMLLinkProps {
   icon?: Icon

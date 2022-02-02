@@ -1,12 +1,18 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from 'react'
+import {
+  ButtonHTMLAttributes,
+  DetailedHTMLProps,
+  FC,
+} from 'react'
 import { Icon } from '@primer/octicons-react'
 import classNames from 'classnames'
 
 type ButtonAttributes =
   ButtonHTMLAttributes<HTMLButtonElement>
 
-type HTMLButtonProps =
-  DetailedHTMLProps<ButtonAttributes, HTMLButtonElement>
+type HTMLButtonProps = DetailedHTMLProps<
+  ButtonAttributes,
+  HTMLButtonElement
+>
 
 interface ButtonProps extends HTMLButtonProps {
   icon?: Icon

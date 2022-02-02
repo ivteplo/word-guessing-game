@@ -1,5 +1,5 @@
 {
-  "name": "wordle-clone",
+  "name": "word-guessing-game",
   "description": "",
   "version": "1.0.0",
   "author": "Ivan Teplov",
@@ -35,10 +35,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ivteplo/wordle-clone.git"
+    "url": "git+https://github.com/ivteplo/word-guessing-game.git"
   },
   "bugs": {
-    "url": "https://github.com/ivteplo/wordle-clone/issues"
+    "url": "https://github.com/ivteplo/word-guessing-game/issues"
   },
-  "homepage": "https://github.com/ivteplo/wordle-clone#readme"
+  "homepage": "https://github.com/ivteplo/word-guessing-game#readme"
 }

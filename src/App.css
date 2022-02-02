@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .button {
+    @apply
+      font-medium font-sans
+      text-left
+      rounded-lg p-2 min-w-[200px]
+      hover:bg-light-gray dark:hover:bg-dark-gray
+      ease-in-out transition-colors duration-300
+      flex flex-row items-center gap-2;
+  }
+}
+
+@layer base {
+  .bg-default {
+    @apply bg-light-background;
+  }
+
+  .bg-secondary {
+    @apply bg-light-gray;
+  }
+
+  .text-default {
+    @apply text-light-foreground;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .bg-default {
+      @apply bg-dark-background;
+    }
+
+    .bg-secondary {
+      @apply bg-dark-gray;
+    }
+
+    .text-default {
+      @apply bg-dark-foreground;
+    }
+  }
+}

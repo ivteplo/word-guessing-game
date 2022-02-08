@@ -2,6 +2,10 @@
 
 A word guessing game similar to Wordle
 
+## Screenshots
+
+<img src="screenshots/preview-mobile.jpg" alt="Preview of mobile version" width="300">
+
 ## Development
 
 ### Prerequisites

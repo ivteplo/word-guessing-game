@@ -108,6 +108,8 @@ export const App = () => {
           <Navigation.Link
             href={about.repoURL}
             icon={RepoIcon}
+            target="_blank"
+            referrerPolicy="no-referrer"
           >
             GitHub
           </Navigation.Link>

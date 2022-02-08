@@ -11,45 +11,52 @@
 @layer components {
   .button {
     @apply font-medium font-sans
-      text-left
       rounded-lg p-2 min-w-[200px]
+      bg-transparent
+      text-light-foreground dark:text-dark-foreground
       hover:bg-light-gray dark:hover:bg-dark-gray
       ease-in-out transition-colors duration-300
-      flex flex-row items-center gap-2;
+      flex flex-row items-center justify-center gap-2;
+  }
+
+  .button.filled {
+    @apply bg-primary text-white;
+    @apply bg-opacity-75 hover:bg-opacity-100;
+  }
+
+  .nav-button {
+    @apply text-center justify-center lg:text-left lg:justify-start;
+  }
+
+  .alert-buttons > .button:not(.filled) {
+    @apply bg-light-gray dark:bg-dark-gray;
+    @apply bg-opacity-50 hover:bg-opacity-100;
   }
 
   .game-grid-cell {
-    @apply p-4 mx-4 rounded-xl aspect-square box-content h-[1em]
-      text-2xl bg-default
+    @apply p-3 mx-1 text-2xl
+      sm:p-4 sm:mx-4 sm:text-4xl
+      rounded-xl aspect-square box-content h-[1em]
+      bg-default
       flex justify-center items-center
       drop-shadow-xl shadow-inner;
+  }
+
+  .App {
+    @apply text-light-foreground dark:text-dark-foreground;
   }
 }
 
 @layer base {
   .bg-default {
-    @apply bg-light-background;
+    @apply bg-light-background dark:bg-dark-background;
   }
 
   .bg-secondary {
-    @apply bg-light-gray;
+    @apply bg-light-gray dark:bg-dark-gray;
   }
 
   .text-default {
-    @apply text-light-foreground;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .bg-default {
-      @apply bg-dark-background;
-    }
-
-    .bg-secondary {
-      @apply bg-dark-gray;
-    }
-
-    .text-default {
-      @apply bg-dark-foreground;
-    }
+    @apply text-light-foreground dark:text-dark-foreground;
   }
 }

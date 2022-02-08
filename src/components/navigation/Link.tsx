@@ -1,22 +1,9 @@
-import {
-  AnchorHTMLAttributes,
-  DetailedHTMLProps,
-  FC,
-} from 'react'
 import classNames from 'classnames'
-import { Icon } from '@primer/octicons-react'
+import { FC } from 'react'
 
-type LinkAttributes =
-  AnchorHTMLAttributes<HTMLAnchorElement>
+import { HTMLLinkProps, WithIcon } from '../helpers/types'
 
-type HTMLLinkProps = DetailedHTMLProps<
-  LinkAttributes,
-  HTMLAnchorElement
->
-
-interface LinkProps extends HTMLLinkProps {
-  icon?: Icon
-}
+type LinkProps = WithIcon<HTMLLinkProps>
 
 export const Link: FC<LinkProps> = ({
   icon: Icon,
@@ -25,7 +12,7 @@ export const Link: FC<LinkProps> = ({
   ...props
 }) => {
   const classes = classNames(
-    'button text-decoration-none',
+    'button nav-button text-decoration-none',
     className
   )
 

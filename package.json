@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.3",
     "@primer/octicons-react": "^16.3.0",
     "classnames": "^2.3.1",
     "react": "^17.0.2",

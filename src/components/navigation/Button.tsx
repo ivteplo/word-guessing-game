@@ -1,22 +1,14 @@
-import {
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  FC,
-} from 'react'
-import { Icon } from '@primer/octicons-react'
 import classNames from 'classnames'
+import { FC } from 'react'
 
-type ButtonAttributes =
-  ButtonHTMLAttributes<HTMLButtonElement>
+import { WithIcon } from '../helpers/types'
 
-type HTMLButtonProps = DetailedHTMLProps<
-  ButtonAttributes,
-  HTMLButtonElement
->
+import {
+  Button as UIButton,
+  ButtonProps as UIButtonProps,
+} from '../controls/Button'
 
-interface ButtonProps extends HTMLButtonProps {
-  icon?: Icon
-}
+type ButtonProps = WithIcon<UIButtonProps>
 
 export const Button: FC<ButtonProps> = ({
   icon: Icon,
@@ -24,12 +16,12 @@ export const Button: FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const classes = classNames('button', className)
+  const classes = classNames('nav-button', className)
 
   return (
-    <button type="button" {...props} className={classes}>
+    <UIButton className={classes} {...props}>
       {Icon && <Icon verticalAlign="middle" />}
       {children}
-    </button>
+    </UIButton>
   )
 }

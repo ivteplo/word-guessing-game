@@ -11,6 +11,8 @@ import {
   useState,
 } from 'react'
 import { InputGrid } from './components/game/InputGrid'
+import { Alert } from './components/Alert'
+import { Button } from './components/controls/Button'
 
 const maxGuessesCount = 5
 
@@ -18,6 +20,9 @@ export const App = () => {
   const [word, setWord] = useState('')
   const [input, setInput] = useState('')
   const [guesses, setGuesses] = useState<string[]>([])
+  const [status, setStatus] = useState<'' | 'won' | 'lost'>(
+    ''
+  )
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const setNewWord = () => setWord(getRandomWord())
@@ -40,21 +45,33 @@ export const App = () => {
   const onGuess: FormEventHandler = (event) => {
     event.preventDefault()
 
-    if (input.trim().length !== word.length) {
+    const guess = input.trim()
+
+    if (guess.length !== word.length) {
       return
     }
 
-    const guess = input
-    setGuesses([...guesses, guess])
+    const updatedGuesses = [...guesses, guess]
+    setGuesses(updatedGuesses)
 
-    if (input === guess) {
-      // TODO: show 'you won'
-    } else if (guesses.length > maxGuessesCount) {
-      // TODO: show 'you lose'
+    if (
+      guess === word ||
+      updatedGuesses.length >= maxGuessesCount
+    ) {
+      setStatus(guess === word ? 'won' : 'lost')
     }
 
     textFieldRef.current!.value = ''
     onInput()
+  }
+
+  const onAlertClose = () => {
+    setStatus('')
+  }
+
+  const onAlertTransitionEnd = () => {
+    setNewWord()
+    focusOnInput()
   }
 
   useEffect(() => {
@@ -72,9 +89,11 @@ export const App = () => {
   }, [word])
 
   return (
-    <div className="App h-screen flex text-default select-none">
-      <nav className="bg-default flex flex-col p-4">
-        <h2 className="text-2xl font-bold mb-4">Menu</h2>
+    <div className="App h-screen flex flex-col-reverse lg:flex-row text-default select-none">
+      <nav className="bg-secondary lg:bg-default flex flex-col items-center justify-center lg:items-start lg:justify-start p-4">
+        <h2 className="text-2xl font-bold mb-4 hidden lg:visible">
+          Menu
+        </h2>
 
         <Navigation.MenuSection sectionName="Game">
           <Navigation.Button
@@ -94,11 +113,22 @@ export const App = () => {
           </Navigation.Link>
         </Navigation.MenuSection>
       </nav>
+
       <main
-        className="bg-secondary p-4 flex-grow"
+        className="bg-secondary p-4 flex-grow flex flex-col items-center justify-center"
         onClick={focusOnInput}
       >
-        <h1 className="text-4xl font-bold">Hello!</h1>
+        <section className="mb-8 flex flex-col items-center text-center">
+          <h1 className="text-4xl font-bold mb-2">
+            Guess the word
+          </h1>
+
+          <p className="text-lg text-default opacity-75">
+            Just start typing. After filling all the blanks
+            for letters, press <code>Enter</code>. You have
+            5 tries
+          </p>
+        </section>
 
         {guesses.map((guess, index) => (
           <InputGrid
@@ -122,6 +152,33 @@ export const App = () => {
           <button type="submit">Submit your guess</button>
         </form>
       </main>
+
+      <Alert
+        isOpen={!!status}
+        title={
+          'You ' +
+          (guesses.slice(-1)[0] === word ? 'won' : 'lost')
+        }
+        onClose={onAlertClose}
+        showCloseButton={false}
+        onLeaveTransition={onAlertTransitionEnd}
+        buttons={
+          <>
+            <Button
+              className="filled"
+              autoFocus
+              onClick={onAlertClose}
+            >
+              Start a new game
+            </Button>
+          </>
+        }
+      >
+        <p className="flex flex-col items-center">
+          <span>The word was:</span>
+          <b className="text-2xl">{word}</b>
+        </p>
+      </Alert>
     </div>
   )
 }

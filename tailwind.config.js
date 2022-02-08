@@ -1,4 +1,4 @@
-const { gray } = require("tailwindcss/colors")
+const { gray } = require('tailwindcss/colors')
 
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -9,9 +9,11 @@ module.exports = {
         'light-background': '#fff',
         'light-foreground': '#000',
 
-        'dark-gray': gray[800],
+        'dark-gray': gray[900],
         'dark-background': '#000',
         'dark-foreground': '#fff',
+
+        primary: '#006D77',
       },
       fontFamily: {
         sans: [

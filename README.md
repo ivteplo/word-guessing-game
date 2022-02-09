@@ -2,9 +2,20 @@
 
 A word guessing game similar to Wordle
 
-## Screenshots
+## Used Tools and Frameworks
 
-<img src="screenshots/preview-mobile.jpg" alt="Preview of mobile version" width="300">
+- React
+- TypeScript
+- TailwindCSS
+- HeadlessUI
+- Octicons
+- Vite
+
+## Preview
+
+<img src="screenshots/preview-desktop-light.png" alt="Preview of the app. Light theme">
+
+<img src="screenshots/preview-desktop-dark.png" alt="Preview of the app. Dark theme">
 
 ## Development
 

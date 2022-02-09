@@ -91,7 +91,7 @@ export const App = () => {
   return (
     <div className="App h-screen flex flex-col-reverse lg:flex-row text-default select-none">
       <nav className="bg-secondary lg:bg-default flex flex-col items-center justify-center lg:items-start lg:justify-start p-4">
-        <h2 className="text-2xl font-bold mb-4 hidden lg:visible">
+        <h2 className="text-2xl font-bold mb-4 hidden lg:block">
           Menu
         </h2>
 

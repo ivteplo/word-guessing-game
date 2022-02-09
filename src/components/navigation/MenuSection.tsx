@@ -16,7 +16,7 @@ export const MenuSection: FC<MenuSectionProps> = ({
 
   return (
     <section className={classes} {...props}>
-      <h3 className="text-xs text-default text-opacity-50 mb-2 uppercase font-bold hidden lg:visible">
+      <h3 className="text-xs text-default text-opacity-50 mb-2 uppercase font-bold hidden lg:block">
         {sectionName}
       </h3>
       <ul className="list-none">
